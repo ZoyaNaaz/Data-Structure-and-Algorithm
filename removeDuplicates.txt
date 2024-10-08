@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+//remove duplicates from the string
+void removeDuplicate(string &s){
+    int n = s.length();
+    if(n == 0 || n == 1) return;
+    for(int i =1;i<=n;i++){ //loop since we need to compare a[0] with each char in string
+        if(s[0] == s[i]){ //comparing each char with s[0]
+                for(int j =i;j<=n;j++)//shifting char
+                    s[j] = s[j+1];
+            }
+    }
+    string remain = s.substr(1); //as substr() generate new string, we can't give direct string to the reference type value
+    removeDuplicate(remain);  
+    s = s[0] + remain; 
+    
+}
+int main(){
+    string s = "aaba";
+    removeDuplicate(s);
+    cout<<s;
+    return 0;
+}
