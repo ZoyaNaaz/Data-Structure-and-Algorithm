@@ -1,0 +1,23 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+void removeCduplicate(char a[]){
+    int l1 = strlen(a);
+    if(l1 == 0 || l1 == 1) return;
+    if(a[0] == a[1]){ //char is found 
+        for(int i = 1;i<l1;i++)//shifting char
+            a[i] = a[i+1];
+        removeCduplicate(a);//calling again 
+    }
+    else{
+        removeCduplicate(a+1);
+    }
+}
+int main(){
+    // remove consecutive duplicate char in string
+    char arr[10];
+    cout<<"enter input string:";
+    cin>>arr;
+    removeCduplicate(arr);
+    cout<<arr;
+}
