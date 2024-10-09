@@ -8,10 +8,7 @@ void removeDuplicate(string &s){
         if(s[0] == s[i]){ //comparing each char with s[0]
                 for(int j =i;j<=n;j++)//shifting char
                     s[j] = s[j+1];
-                i--;
-            }
-        else
-                i++;
+        }
     }
     string remain = s.substr(1); //as substr() generate new string, we can't give direct string to the reference type value
     removeDuplicate(remain);  
